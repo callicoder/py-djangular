@@ -6,7 +6,10 @@
 		'py_djangular.routes',
 		'py_djangular.config',
 		'py_djangular.authentication',
-		'py_djangular.layout'
+		'py_djangular.layout',
+		'py_djangular.posts',
+		'py_djangular.utils',
+		'py_djangular.profiles'
 	])
 	.run(run);
 

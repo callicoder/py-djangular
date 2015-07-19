@@ -4,6 +4,9 @@ from django.contrib.auth.models import BaseUserManager
 
 class AccountManager(BaseUserManager):	
 	def create_user(self, email, password=None, **kwargs):
+		"""
+			Creates and saves a user with the given email, username and password.
+		"""
 		if not email:
 			raise ValueError('Users must have a valid email address.')
 
@@ -21,6 +24,9 @@ class AccountManager(BaseUserManager):
 
 
 	def create_superuser(self, email, password, **kwargs):
+		"""	
+			Creates and saves a superuser eith the given email, username and password.
+		"""
 		account = self.create_user(email, password, **kwargs)
 		
 		account.is_admin = True
@@ -30,7 +36,7 @@ class AccountManager(BaseUserManager):
 
 
 class Account(AbstractBaseUser):
-	email = models.EmailField(unique=True)
+	email = models.EmailField(verbose_name="email address", max_length=255, unique=True)
 	username = models.CharField(max_length=40, unique=True)
 	
 	first_name = models.CharField(max_length=40, blank=True)

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from authentication.serializers import Account
+from authentication.serializers import AccountSerializer
 from posts.models import Post
 
 class PostSerializer(serializers.ModelSerializer):
